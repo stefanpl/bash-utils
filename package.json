@@ -1,0 +1,33 @@
+{
+  "name": "bash-utils",
+  "version": "1.0.0",
+  "description": "A collection of bash scripts for day-to-day usage",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run development",
+    "prod": "npm run production",
+    "development": "npx webpack --mode=development",
+    "watch": "npx webpack --mode=development --watch",
+    "production": "npx webpack --mode=production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stefanpl/bash-utils.git"
+  },
+  "keywords": [
+    "bash",
+    "utils",
+    "command-line"
+  ],
+  "author": "stefanpl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stefanpl/bash-utils/issues"
+  },
+  "homepage": "https://github.com/stefanpl/bash-utils#readme",
+  "devDependencies": {
+    "post-compile-webpack-plugin": "^0.1.2",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
+  }
+}
