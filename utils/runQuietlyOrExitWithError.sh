@@ -2,7 +2,7 @@
 
 #
 # Runs a given command $1 without producing any output unless the command fails.
-# If the command fails, it will prepend a custom error message $2 and print out the stderr message.
+# If the command fails, it will prepend a custom error message (optional) $2 and print out the stderr message.
 #
 # @param $1 command to execute
 # @param $2 custom error message
@@ -14,9 +14,16 @@
 #
 function runQuietlyOrPrintError {
   if [ -z "${1}" ]; then
-    logError "Please provide a command to run as the first input parameter"
+    logError "'runQuietlyOrPrintError' needs a command to run as the first input parameter. "
     return 1
   fi
 
-  return 0
+  outputString=`eval ${*} 2>&1`
+  exitCode=$?
+  if [ ${exitCode} -ne 0 ]; then
+    logError "An error occurred when executing '${*}'. Output was:"
+    echo ${outputString}
+  fi
+
+  return ${exitCode}
 }
