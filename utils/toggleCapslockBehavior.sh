@@ -5,20 +5,19 @@
 function toggleCapslockBehavior() {
 
   function check_if_setxkbmap_is_available() {
-    setxkbmap -version > /dev/null || exitWithError \
-    "setxkbmap does not seem to be installed, but is required for this script. Aborting."
+    setxkbmap -version > /dev/null 2>&1 || (logError \
+    "setxkbmap does not seem to be installed, but is required for this script. Aborting." ; return 1;)
   }
 
   function swap_behavior() {
     if setxkbmap -print | grep "capslock(swapescape)" > /dev/null 2>&1; then
-      logInfo "Already swapped. Reverting to default behavior."
-      setxkbmap -option
+      setxkbmap -option && \
+      logSuccess "Capslock/escape reverted to default behavior."
     else
-      logInfo "Swapping escape and capslock now."
-      setxkbmap -option "caps:swapescape"
+      setxkbmap -option "caps:swapescape" && \
+      logSuccess "Capslock/escape are swapped now!"
     fi
   }
 
-  check_if_setxkbmap_is_available
-  swap_behavior
+  check_if_setxkbmap_is_available && swap_behavior
 }

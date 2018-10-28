@@ -8,5 +8,5 @@ function logError {
     logError "An error message must be provided to logError."
     return 1
   fi
-  printf "${RED} ⛔ ERROR: $1\n${NORMAL}" 1>&2;
+  printf "${RED} ⛔ ERROR: ${*}\n${NORMAL}" 1>&2;
 }

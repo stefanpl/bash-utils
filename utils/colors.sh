@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # ANSI COLOR CODES. Use bold ones for better readability
 # There's more:
 # https://gist.github.com/vratiu/9780109

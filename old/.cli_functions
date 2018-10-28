@@ -1,0 +1,12 @@
+# checks if a certain URL is not registered as a .com adress
+checkIfUrlIsAvailable() {
+	whois $1 | egrep -i "no match"
+	if [ "$EUID" -ne 0  ]; then
+		echo "Searching without root privileges. Some results may not be found."
+	fi
+	find . -iname "*$1*" 2>/dev/null
+}
+
+count_char_occurences() {
+	echo $1 | grep -o . | sort | uniq -c
+}
