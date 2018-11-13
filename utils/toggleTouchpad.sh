@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#!/bin/bash
-
 #
 # Toggle synaptic touchpad on/off
 #
