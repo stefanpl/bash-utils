@@ -28,7 +28,7 @@ function initializeRethinkDataDirectory() {
       rm -rf ${tmpDir}
     fi
   }
-  trap cleanup EXIT
+  trap cleanup EXIT RETURN
 
   datadir=${1}
   pushd ${datadir} > /dev/null
