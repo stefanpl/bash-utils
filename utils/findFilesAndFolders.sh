@@ -1,5 +1,8 @@
 #!/bin/bash
 
+source ${BASH_UTILS_LOCATION}/logError.sh
+source ${BASH_UTILS_LOCATION}/logInfo.sh
+
 #
 # Finds files and folders containing the provided search term
 #

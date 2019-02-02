@@ -1,5 +1,9 @@
 #!/bin/bash
 
+source ${BASH_UTILS_LOCATION}/logError.sh
+source ${BASH_UTILS_LOCATION}/logSuccess.sh
+source ${BASH_UTILS_LOCATION}/logInfo.sh
+
 ###
 #
 # Creates a data directory to be mounted for an empty rethink db docker container.

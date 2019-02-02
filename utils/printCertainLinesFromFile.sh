@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ${BASH_UTILS_LOCATION}/logError.sh
+
 #
 # Prints a number of lines from a file starting at a specified line.
 #

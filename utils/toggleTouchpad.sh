@@ -1,5 +1,8 @@
 #!/bin/bash
 
+source ${BASH_UTILS_LOCATION}/logError.sh
+source ${BASH_UTILS_LOCATION}/logSuccess.sh
+
 #
 # Toggle synaptic touchpad on/off
 #
