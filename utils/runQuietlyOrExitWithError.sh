@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ${BASH_UTILS_LOCATION}/logError.sh
+
 #
 # Runs a given command $1 without producing any output unless the command fails.
 # If the command fails, it will prepend a custom error message (optional) $2 and print out the stderr message.

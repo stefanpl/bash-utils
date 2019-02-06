@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ${BASH_UTILS_LOCATION}/logError.sh
+
 #
 # Logs a formatted info message to stdout.
 #

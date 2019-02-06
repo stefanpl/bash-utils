@@ -1,11 +1,14 @@
 #!/bin/bash
 
+source ${BASH_UTILS_LOCATION}/logError.sh
+source ${BASH_UTILS_LOCATION}/logSuccess.sh
+
 # Toggle capslock behavior between default (capslock) and "swap with escape key"
 
 function toggleCapslockBehavior() {
 
   function check_if_setxkbmap_is_available() {
-    setxkbmap -version > /dev/null 2>&1 || (logError \
+    setxkbmap -version > /dev/null 2>&1 || setxkbmap -help > /dev/null 2>&1 || (logError \
     "setxkbmap does not seem to be installed, but is required for this script. Aborting." ; return 1;)
   }
 
