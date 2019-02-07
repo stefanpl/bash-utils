@@ -17,13 +17,13 @@ function docker_find_container_id() {
     match=`docker container ls | grep -i ${1}`
     numberOfMatchedLines=`echo ${match} | grep -E -c "^."`
     if [[ $numberOfMatchedLines == "0" ]]; then
-        logError "No result found for expression '${1}'"
+        logError "No container found for given expression '${1}'"
         return 1
     fi;
     if [[ $numberOfMatchedLines -gt "1" ]]; then
-        logError "Found ${numberOfMatchedLines} matches for expression '${1}':"
+        logError "Found ${numberOfMatchedLines} containers for expression '${1}':"
         logError $match
-        logError "This command expects only one result"
+        logError "This command expects only one result."
         return 1
     fi;
 

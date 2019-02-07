@@ -17,12 +17,12 @@ function docker_find_service_id() {
     match=`docker service ls | grep -i ${1}`
     numberOfMatchedLines=`echo ${match} | grep -E -c "^."`
     if [[ $numberOfMatchedLines == "0" ]]; then
-        logError "No result found for expression '${1}'"
+        logError "No service found for given expression '${1}'"
         return 1
     fi;
     if [[ $numberOfMatchedLines -gt "1" ]]; then
-        logError "Found ${numberOfMatchedLines} matches for expression '${1}':"
-        logError "This command expects only one result"
+        logError "Found ${numberOfMatchedLines} services for expression '${1}':"
+        logError "This command expects only one result."
         return 1
     fi;
 
