@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ${BASH_UTILS_LOCATION}/logError.sh
+
 ###
 #
 # Run an interactive bash shell inside a given container
@@ -9,15 +11,15 @@
 docker_execute_interactive() {
 
 	if [ -z "$1" ]; then
-		echo "Please provide a container-matching expression as the first command line argument"
+		logError "Please provide a container-matching expression as the first command line argument"
 		return 1
 	fi
     containerName=$1
 
 	dockerId=`docker_find_container_id ${containerName}`
     if [ ${?} -ne 0 ]; then
-        echo $dockerId
-        echo "Could not get ID from container. Aborting."
+        logError $dockerId
+        logError "Could not get ID from container. Aborting."
         return 1
     fi
 
@@ -26,7 +28,7 @@ docker_execute_interactive() {
 	# This enables us to get all remaining arguments by calling ${*}
 	shift
 	if [ -z "$1" ]; then
-		echo "No command given. Running 'bash' inside container ${dockerId}."
+		logError "No command given. Running 'bash' inside container ${dockerId}."
 		command=bash
 	else
 		command=${*}
