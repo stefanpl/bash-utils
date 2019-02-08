@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ${BASH_UTILS_LOCATION}/colors.sh
+
 #
 # Logs a formatted error to stderr.
 #

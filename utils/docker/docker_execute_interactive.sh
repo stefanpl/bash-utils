@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source ${BASH_UTILS_LOCATION}/logError.sh
+source ${BASH_UTILS_LOCATION}/logInfo.sh
 
 ###
 #
@@ -28,7 +29,7 @@ docker_execute_interactive() {
 	# This enables us to get all remaining arguments by calling ${*}
 	shift
 	if [ -z "$1" ]; then
-		logError "No command given. Running 'bash' inside container ${dockerId}."
+		logInfo "No command given. Running 'bash' inside container ${dockerId}."
 		command=bash
 	else
 		command=${*}
