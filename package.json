@@ -8,7 +8,9 @@
     "prod": "npm run production",
     "development": "npx webpack --mode=development",
     "watch": "npx webpack --mode=development --watch",
-    "production": "npx webpack --mode=production"
+    "production": "npx webpack --mode=production",
+    "test": "NODE_ENV=testing npx mocha test/dist/tests.compiled.js",
+    "test-debug": "NODE_ENV=testing node --inspect-brk=0.0.0.0:9229 ./node_modules/mocha/bin/_mocha --no-timeouts test/dist/tests.compiled.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +19,11 @@
   "keywords": [
     "bash",
     "utils",
-    "command-line"
+    "utilities",
+    "command-line",
+    "cli",
+    "helpers",
+    "functions"
   ],
   "author": "stefanpl",
   "license": "MIT",
@@ -27,6 +33,13 @@
   "homepage": "https://github.com/stefanpl/bash-utils#readme",
   "devDependencies": {
     "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.1.2",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^11.9.0",
+    "mocha": "^5.2.0",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.3.3"
+  },
+  "dependencies": {
   }
 }
