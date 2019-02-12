@@ -1,5 +1,4 @@
 const path = require('path');
-const PostCompile = require('post-compile-webpack-plugin');
 const cp = require('child_process');
 
 module.exports = {
