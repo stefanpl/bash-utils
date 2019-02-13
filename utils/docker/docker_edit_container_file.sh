@@ -8,7 +8,7 @@ source ${BASH_UTILS_LOCATION}/logError.sh
 # @param $1 – the string which matches a container
 #
 ###
-docker_edit_container_file() {
+function docker_edit_container_file() {
 
 	if [ -z "$1" ]; then
 		logError "Please provide a container-matching expression as the first command line argument"

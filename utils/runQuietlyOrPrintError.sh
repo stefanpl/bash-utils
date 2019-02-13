@@ -4,10 +4,9 @@ source ${BASH_UTILS_LOCATION}/logError.sh
 
 #
 # Runs a given command $1 without producing any output unless the command fails.
-# If the command fails, it will prepend a custom error message (optional) $2 and print out the stderr message.
+# If the command fails, it will prepend a custom error message and print out the stderr message.
 #
 # @param $1 command to execute
-# @param $2 custom error message
 # @return the commands exit status
 #
 # Example: `runQuietlyOrExitWithError "mkdir test" "Could not create 'test' directory"`:

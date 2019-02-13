@@ -6,7 +6,7 @@
 # @param 1 – url where the certificate is delivered
 #
 ###
-showSslCertificateInformation() {
+function showSslCertificateInformation() {
 
     if [ -z "$1" ]; then
         echo "Provide a URL as the first argument"

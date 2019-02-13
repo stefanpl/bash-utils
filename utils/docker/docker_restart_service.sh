@@ -9,7 +9,7 @@ source ${BASH_UTILS_LOCATION}/logInfo.sh
 # @param $1 – the string which matches a service
 #
 ###
-docker_restart_service() {
+function docker_restart_service() {
 
 	if [ -z "$1" ]; then
 		logError "Please provide a service-matching expression as the first command line argument"

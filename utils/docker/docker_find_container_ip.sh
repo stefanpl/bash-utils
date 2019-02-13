@@ -9,7 +9,7 @@ source ${BASH_UTILS_LOCATION}/logSuccess.sh
 # @param $1 – the string which matches a container
 #
 ###
-docker_find_container_ip() {
+function docker_find_container_ip() {
 
 	if [ -z "$1" ]; then
 		logError "Please provide a container-matching expression as the first command line argument"
