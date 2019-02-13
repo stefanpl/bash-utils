@@ -41,5 +41,6 @@
     "typescript": "^3.3.3"
   },
   "dependencies": {
+    "recursive-readdir": "^2.2.2"
   }
 }
