@@ -24,17 +24,11 @@ function runCommandOnNodeContainer() {
     commandToRun="${*}"
   fi
 
-  if [ -z "$LOCAL_DEBUG_PORT" ]; then
-    localDebugPort=9229
-  else
-    localDebugPort=${LOCAL_DEBUG_PORT}
-  fi
-
   absolutePathToCode=`cd ${SCRIPT_DIRECTORY}/../ && pwd`
   workdir=/home/node/app
 
   docker run --tty --interactive --user node --mount type=bind,src=${absolutePathToCode},dst=${workdir} \
-    --workdir ${workdir} --publish 127.0.0.1:${localDebugPort}:9229 ${ADDITIONAL_DOCKER_RUN_FLAGS} \
+    --workdir ${workdir} ${ADDITIONAL_DOCKER_RUN_FLAGS} \
     "node:10.15-jessie-slim" /bin/bash -c "${commandToRun}"
 }
 
