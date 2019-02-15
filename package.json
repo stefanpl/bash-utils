@@ -41,6 +41,10 @@
     "typescript": "^3.3.3"
   },
   "dependencies": {
-    "recursive-readdir": "^2.2.2"
+    "@types/lodash": "^4.14.121",
+    "@types/tmp": "0.0.34",
+    "lodash": "^4.17.11",
+    "recursive-readdir": "^2.2.2",
+    "tmp": "0.0.33"
   }
 }
