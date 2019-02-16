@@ -1,8 +1,8 @@
 import * as assert from 'assert';
 import * as path from 'path';
-import * as recursiveReaddir from 'recursive-readdir';
 import * as fs from 'fs';
 import { promisify } from 'util';
+import { getAllFilesInUtilsDirectoryCached } from './utils/testHelpers';
 
 const readFileFs = promisify(fs.readFile);
 const readFile = async function( fileName: string ): Promise<string> {
@@ -13,15 +13,6 @@ let allFilesInUtilsDirectory;
 let filesWithoutFunction = [
   'utils/colors.sh',
 ];
-
-async function getAllFilesInFolder (folderName: string): Promise<Array<string>> {
-  return new Promise(function(resolve, reject) {
-    recursiveReaddir(folderName, (err, files) => {
-      if (err) return reject(err);
-      resolve(files);
-    });
-  });
-}
 
 async function extractFunctionNameFromBashFile (fileName: string): Promise<string> {
   let contents = await readFile(fileName);
@@ -43,8 +34,7 @@ async function readFirstLineFromFile (fileName: string): Promise<string> {
 
 describe('All files in /utils folder:', function() {
   before('Read in /utils files', async function readFilesFromUtils() {
-    let utilsFolder = path.join(__dirname, './../../utils');
-    allFilesInUtilsDirectory = await getAllFilesInFolder(utilsFolder);
+    allFilesInUtilsDirectory = await getAllFilesInUtilsDirectoryCached();
   });
   
   it('are ending with .sh', async function () {

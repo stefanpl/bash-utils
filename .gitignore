@@ -2,3 +2,5 @@ node_modules
 .idea
 dist
 cloned-bash-utils
+quickTest.ts
+
