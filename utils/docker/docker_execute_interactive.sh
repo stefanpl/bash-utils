@@ -12,30 +12,26 @@ source ${BASH_UTILS_LOCATION}/logInfo.sh
 function docker_execute_interactive() {
 
 	if [ -z "$1" ]; then
-		logError "Please provide a container-matching expression as the first command line argument"
+		logError "Please provide a container id as the first command line argument"
 		return 1
 	fi
-    containerName=$1
-function 
-	function dockerId=`docker_find_container_id ${containerName}`
-    if [ ${?} -ne 0 ]; then
-        logError $dockerId
-        logError "Could not get ID from container. Aborting."
-        return 1
-    fi
+    containerId=$1
 
-	# Using the shift builtin will shift down all params by one.
+	# Using the shift builtin will shift down all params by one:
 	# $3 becomes $2, $2 becomes $1
-	function # This enables us to get all remaining arguments by calling ${*}
+	#
+	# This enables us to get all remaining arguments 
+	#  (e.g. the command to be executed) by calling ${*}
 	shift
+
 	if [ -z "$1" ]; then
-		logInfo "No command given. Running 'bash' inside container ${dockerId}."
-		command=bash
+		logInfo "No command given. Running 'bash' inside container ${containerId}."
+		command=/bin/bash
 	else
 		command=${*}
 	fi
 
-	finalCommand="docker exec -ti ${dockerId} ${command}"
+	finalCommand="docker exec -ti ${containerId} ${command}"
 	eval ${finalCommand}
 
 }
