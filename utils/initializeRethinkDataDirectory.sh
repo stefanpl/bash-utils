@@ -24,8 +24,8 @@ function initializeRethinkDataDirectory() {
 
   function cleanup() {
     popd > /dev/null
-    if [ ! -z ${tmpDir} ]; then
-      rm -rf ${tmpDir}
+    if [ ! -z ${tmpDirForRethinkData} ]; then
+      rm -rf ${tmpDirForRethinkData}
     fi
   }
   trap cleanup EXIT RETURN
@@ -48,8 +48,8 @@ function initializeRethinkDataDirectory() {
     return 1
   fi
 
-  tmpDir=`mktemp -d`
-  git clone --quiet https://github.com/stefanpl/empty-rethinkdb-data-directory ${tmpDir} > /dev/null || return 1
-  mv ${tmpDir}/rethinkdb-data/* . || return 1
+  tmpDirForRethinkData=`mktemp -d`
+  git clone --quiet https://github.com/stefanpl/empty-rethinkdb-data-directory ${tmpDirForRethinkData} > /dev/null || return 1
+  mv ${tmpDirForRethinkData}/rethinkdb-data/* . || return 1
   logSuccess "Rethinkdb meta data successfully copied."
 }
