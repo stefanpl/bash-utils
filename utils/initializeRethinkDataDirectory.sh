@@ -38,7 +38,7 @@ function initializeRethinkDataDirectory() {
 
   if [ ${numberOfFiles} -gt "0" ]; then
     logInfo "Found files in directory ${datadir}. Assuming database is initialized."
-    return 1
+    return 0
   fi
 
   # Check if git is available
