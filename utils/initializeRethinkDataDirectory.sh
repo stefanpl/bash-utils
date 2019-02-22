@@ -23,15 +23,11 @@ function initializeRethinkDataDirectory() {
   fi
 
   function cleanup() {
-    popd > /dev/null
     if [ ! -z ${tmpDirForRethinkData} ]; then
       rm -rf ${tmpDirForRethinkData}
     fi
   }
   trap cleanup EXIT RETURN
-
-  datadir=${1}
-  pushd ${datadir} > /dev/null
 
   # Cound the files in the folder. In case there are any files (not including .gitignore), abort.
   numberOfFiles=`ls | wc -l`
@@ -50,6 +46,6 @@ function initializeRethinkDataDirectory() {
 
   tmpDirForRethinkData=`mktemp -d`
   git clone --quiet https://github.com/stefanpl/empty-rethinkdb-data-directory ${tmpDirForRethinkData} > /dev/null || return 1
-  mv ${tmpDirForRethinkData}/rethinkdb-data/* . || return 1
+  mv ${tmpDirForRethinkData}/rethinkdb-data/* ${datadir} || return 1
   logSuccess "Rethinkdb meta data successfully copied."
 }

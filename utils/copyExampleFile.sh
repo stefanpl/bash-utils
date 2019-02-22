@@ -23,17 +23,14 @@ function copyExampleFile() {
     return 1
   fi
 
-  pushd `dirname ${exampleFile}` > /dev/null
-  trap "popd > /dev/null" EXIT RETURN
-  
-  filenameWithoutExampleSuffix=`basename ${exampleFile} | perl -p -e "s/\.example\$//"` 
+  filenameWithoutExampleSuffix=`dirname ${exampleFile}`/`basename ${exampleFile} | perl -p -e "s/\.example\$//"` 
   if [ -z "$filenameWithoutExampleSuffix" ]; then
     logError "The given file ${exampleFile} does not seem to end with the suffix '.example' – this is required."
     return 1
   fi
 
   if [ ! -f ${filenameWithoutExampleSuffix} ]; then
-    cp `basename ${exampleFile}` ${filenameWithoutExampleSuffix} && \
+    cp ${exampleFile} ${filenameWithoutExampleSuffix} && \
     logSuccess "Created a new file `dirname ${exampleFile}`/${filenameWithoutExampleSuffix} from its .example counterpart."
   else
     logInfo "File `dirname ${exampleFile}`/${filenameWithoutExampleSuffix} already exists."
