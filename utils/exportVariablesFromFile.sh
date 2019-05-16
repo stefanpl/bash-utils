@@ -13,6 +13,10 @@ function exportVariablesFromFile() {
     logError "Provide a file containing the variables as the first argument."
     return 1
   fi
+  if [ ! -f "${1}" ]; then
+    logError "Argument '${1}' is not a valid file."
+    return 1
+  fi
 
   variablesInFile=`grep -E "^[-_a-z0-9A-Z]+=" ${1}`
   while read -r line; do
