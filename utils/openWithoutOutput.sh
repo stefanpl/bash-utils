@@ -18,5 +18,5 @@ function openWithoutOutput() {
 
   xdg-open --help > /dev/null 2>&1 || (logError "xdg-open not available." ; return)
 
-  xdg-open ${1} > /dev/null 2>&1
+  xdg-open ${1} > /dev/null 2>&1 &
 }
