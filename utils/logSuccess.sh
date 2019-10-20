@@ -11,5 +11,5 @@ function logSuccess {
     logError "A message must be provided to logSuccess."
     return 1
   fi
-  printf "${GREEN} ✓ YAY: ${*}\n${NORMAL}" 1>&2;
+  printf "${GREEN} ✓ YAY: ${*}\n${NORMAL}"
 }

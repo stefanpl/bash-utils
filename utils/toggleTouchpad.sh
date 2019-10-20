@@ -18,9 +18,9 @@ function toggleTouchpad {
 
   if [[ -n $enabled ]]; then
     xinput --disable $id && \
-    logSuccess Touchpad is disabled now.
+    logSuccess touchpad DISabled
   else
     xinput --enable $id && \
-    logSuccess Touchpad is enabled now.
+    logSuccess touchpad ENabled
   fi
 }
