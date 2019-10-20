@@ -14,6 +14,10 @@ function toggleTouchpad {
 	  return 1
   fi
 
+  if [ "${1}" = "--clean" ]; then
+    export CLEAN_OUTPUT=true
+  fi
+
   enabled=$(xinput --list-props $id | grep -iE "Device Enabled.*:.*1")
 
   if [[ -n $enabled ]]; then
@@ -23,4 +27,5 @@ function toggleTouchpad {
     xinput --enable $id && \
     logSuccess touchpad ON
   fi
+  export CLEAN_OUTPUT=false
 }

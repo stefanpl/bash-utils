@@ -19,6 +19,12 @@ describe('The exportVariablesFromFile function:', function() {
     shellOutputMustContainStdout(shellOutput, 'variable in new process is someValue');
   });
 
+  it('complains if the provided file does not exist', async function () {
+  
+    // TODO: implement this test
+
+  });
+
   
 });
 

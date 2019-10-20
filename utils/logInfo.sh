@@ -11,5 +11,9 @@ function logInfo {
     logError "A message must be provided to logInfo."
     return 1
   fi
-  printf "${YELLOW} 🛈 INFO: ${*}\n${NORMAL}"
+  if [ "${CLEAN_OUTPUT}" = "true" ]; then
+    echo ${*} 1>&2
+  else
+    printf "${YELLOW} 🛈 INFO: ${*}\n${NORMAL}"
+  fi
 }

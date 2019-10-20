@@ -11,5 +11,9 @@ function logSuccess {
     logError "A message must be provided to logSuccess."
     return 1
   fi
-  printf "${GREEN} ✓ YAY: ${*}\n${NORMAL}"
+  if [ "${CLEAN_OUTPUT}" = "true" ]; then
+    echo ${*}
+  else
+    printf "${GREEN} ✓ YAY: ${*}\n${NORMAL}"
+  fi
 }
