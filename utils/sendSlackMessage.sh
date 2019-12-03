@@ -4,7 +4,7 @@
 # This function will send a message to ${SLACK_HOOK}
 ###
 
-source ${BASH_UTILS_LOCATION}/logError.sh
+source ${BASH_UTILS_LOCATION}/utils/logError.sh
 
 function sendSlackMessage() {
     if [ -z "$1" ]; then

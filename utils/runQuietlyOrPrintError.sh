@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ${BASH_UTILS_LOCATION}/logError.sh
+source ${BASH_UTILS_LOCATION}/utils/logError.sh
 
 #
 # Runs a given command $1 without producing any output unless the command fails.

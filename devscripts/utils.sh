@@ -12,9 +12,9 @@ if [ -z "$BASH_UTILS_LOCATION" ] || [ ! -d "$BASH_UTILS_LOCATION" ]; then
   git clone --quiet https://github.com/stefanpl/bash-utils ${SCRIPT_DIRECTORY}/cloned-bash-utils
 fi
 
-source ${BASH_UTILS_LOCATION}/logError.sh
-source ${BASH_UTILS_LOCATION}/logSuccess.sh
-source ${BASH_UTILS_LOCATION}/logInfo.sh
+source ${BASH_UTILS_LOCATION}/utils/logError.sh
+source ${BASH_UTILS_LOCATION}/utils/logSuccess.sh
+source ${BASH_UTILS_LOCATION}/utils/logInfo.sh
 
 function runCommandOnNodeContainer() {
   if [ -z "${1}" ]; then

@@ -1,7 +1,7 @@
 #!/bin/bash
 
-source ${BASH_UTILS_LOCATION}/logError.sh
-source ${BASH_UTILS_LOCATION}/colors.sh
+source ${BASH_UTILS_LOCATION}/utils/logError.sh
+source ${BASH_UTILS_LOCATION}/utils/colors.sh
 
 #
 # Checks out a local branch matching a given expression.

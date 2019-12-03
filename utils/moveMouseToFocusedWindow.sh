@@ -4,8 +4,8 @@
 # This function will move the mouse cursor to the center of the currently focused window
 ###
 
-source ${BASH_UTILS_LOCATION}/logError.sh
-source ${BASH_UTILS_LOCATION}/logInfo.sh
+source ${BASH_UTILS_LOCATION}/utils/logError.sh
+source ${BASH_UTILS_LOCATION}/utils/logInfo.sh
 
 function moveMouseToFocusedWindow() {
     requiredCommand=xdotool

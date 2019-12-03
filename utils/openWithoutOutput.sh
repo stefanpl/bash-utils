@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ${BASH_UTILS_LOCATION}/logError.sh
+source ${BASH_UTILS_LOCATION}/utils/logError.sh
 
 ##
 # Runs an application in the background, without putting output to the terminal

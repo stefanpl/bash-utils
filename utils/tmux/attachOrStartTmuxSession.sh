@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ${BASH_UTILS_LOCATION}/logError.sh
+source ${BASH_UTILS_LOCATION}/utils/logError.sh
 
 #
 # Given a session $1, this script will attach a tmux client to the session or create it and then attach.
