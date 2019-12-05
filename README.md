@@ -17,7 +17,7 @@ source ${BASH_UTILS_LOCATION}/utils/bootstrap.sh
 
 Alternatively, to make your shell files more flexible, you can do something like:
 ```bash
-# Put BASH_UTILS_LOCATION=path in your .env!
+# Put `export BASH_UTILS_LOCATION=path` in your .env!
 source ~/.oh-my-zsh/.env
 source ${BASH_UTILS_LOCATION}/utils/bootstrap.sh
 ```

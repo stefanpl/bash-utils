@@ -9,7 +9,7 @@ fi
 
 if [ -z "$BASH_UTILS_LOCATION"  ]; then
   echo "No value found for BASH_UTILS_LOCATION. Please set it in your environment." > /dev/stderr
-  return 1
+  exit 1
 fi
 
 # Source all files in the utils folder and its subfolders
