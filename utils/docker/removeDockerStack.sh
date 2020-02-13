@@ -16,7 +16,7 @@ function removeDockerStack() {
     return 1
   fi
 
-  docker stack rm ${1}
+  docker stack rm ${1} || return 1
   logInfo "Waiting for services and networks to be cleaned up …"
   
   until [ -z "$(docker service ls --filter label=com.docker.stack.namespace=${STACK_NAME} -q)" ]; do
