@@ -16,7 +16,7 @@ function getValueFromJsonFile() {
   jsonFile="${1}"
   key="${2}"
   lineExpression="${key}\" *:"
-  lines=`cat ${jsonFile} | egrep ${lineExpression}`
+  lines=`egrep "${lineExpression}" "${jsonFile}"`
   lineCount=`echo ${lines} | wc -l`
   if [ "${lineCount}" -gt 1 ]; then
     logError "Found ${lineCount} keys matching key '${key}'. This is currently not supported."
