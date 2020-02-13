@@ -27,6 +27,6 @@ function getValueFromJsonFile() {
     return 1
   fi
   valueExpression="s/[^:]*: *\"([^\"]+)\".*/\$1/"
-  value=`echo ${lines} | perl -p -e ${valueExpression}`
+  value=`echo ${lines} | perl -p -e "${valueExpression}"`
   echo ${value}
 }
