@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 if [ -z "$BASH_SOURCE[0]" ]; then
   scriptDir=`dirname "$(readlink -f "$0")"`
@@ -15,4 +14,3 @@ fi
 # Source all files in the utils folder and its subfolders
 source ${BASH_UTILS_LOCATION}/utils/sourceAllShFiles.sh
 sourceAllShFiles ${BASH_UTILS_LOCATION}/utils
-set +e
