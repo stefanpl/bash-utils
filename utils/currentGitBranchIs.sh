@@ -1,6 +1,4 @@
 #!/bin/bash
-set -e
-
 ###
 # Checks if the git branch in the pwd is equivalent to the first argument
 # @param1: string to compare current git branch to
