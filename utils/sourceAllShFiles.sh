@@ -10,10 +10,9 @@ function sourceAllShFiles() {
     echo "The given argument '${1}' does not appear to be a directory." > /dev/stderr
     return 1
   fi
-	for file in ${1}/**/*.sh; do
-		source $file
-	done
-	for file in ${1}/*.sh; do
-		source $file
-	done
+
+  shFiles=`find ${1} -name '*.sh'`
+  while read -r shFile; do
+    source ${shFile} 
+  done <<< "$shFiles"
 }
