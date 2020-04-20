@@ -7,14 +7,19 @@
 # - the current folder
 #
 function openInVsCode {
-  if [ ! -z "${1}" ]; then
+  if [ -f "${1}" ]; then
     code ${1}
     return 0
   fi
-  workspace=`find . -maxdepth 1 -mindepth 1 -name "*.code-workspace"`
+  if [ -d "${1}" ]; then
+    folderToOpen=${1}
+  else
+    folderToOpen=.
+  fi
+  workspace=`find ${folderToOpen} -maxdepth 1 -mindepth 1 -name "*.code-workspace"`
   if [ ! -z "${workspace}" ]; then
     code ${workspace}
   else
-    code .
+    code ${folderToOpen}
   fi
 }
