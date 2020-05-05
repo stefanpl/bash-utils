@@ -7,15 +7,23 @@
 # - the current folder
 #
 function openInVsCode {
+  # New file:
+  if [ ! -z "${1}" ] && [ ! -e "${1}" ]; then
+    code ${1}
+    return 0
+  fi
+  # Existing file:
   if [ -f "${1}" ]; then
     code ${1}
     return 0
   fi
+  # Directory or no argument at all:
   if [ -d "${1}" ]; then
     folderToOpen=${1}
   else
     folderToOpen=.
   fi
+  # Check for workspace file in the folder
   workspace=`find ${folderToOpen} -maxdepth 1 -mindepth 1 -name "*.code-workspace"`
   if [ ! -z "${workspace}" ]; then
     code ${workspace}
