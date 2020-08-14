@@ -29,13 +29,14 @@ function copyExampleFile() {
     logError "The given file ${exampleFile} does not seem to end with the suffix '.example' – this is required."
     return 1
   fi
+  echo le without is ${filenameWithoutExampleSuffix}
 
   if [ ! -f ${filenameWithoutExampleSuffix} ]; then
     cp ${exampleFile} ${filenameWithoutExampleSuffix} && \
-    logSuccess "Created a new file `dirname ${exampleFile}`/${filenameWithoutExampleSuffix} from its .example counterpart."
+    logSuccess "Created a new file ${filenameWithoutExampleSuffix} from its .example counterpart."
   else
     if [ "${2}" = "--verbose" ]; then
-      logInfo "File `dirname ${exampleFile}`/${filenameWithoutExampleSuffix} already exists."
+      logInfo "File `dirname ${filenameWithoutExampleSuffix} already exists."
     fi
   fi
 }
