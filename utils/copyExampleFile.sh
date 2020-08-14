@@ -36,7 +36,7 @@ function copyExampleFile() {
     logSuccess "Created a new file ${filenameWithoutExampleSuffix} from its .example counterpart."
   else
     if [ "${2}" = "--verbose" ]; then
-      logInfo "File `dirname ${filenameWithoutExampleSuffix} already exists."
+      logInfo "File dirname ${filenameWithoutExampleSuffix} already exists."
     fi
   fi
 }
