@@ -29,8 +29,6 @@ function copyExampleFile() {
     logError "The given file ${exampleFile} does not seem to end with the suffix '.example' – this is required."
     return 1
   fi
-  echo le without is ${filenameWithoutExampleSuffix}
-
   if [ ! -f ${filenameWithoutExampleSuffix} ]; then
     cp ${exampleFile} ${filenameWithoutExampleSuffix} && \
     logSuccess "Created a new file ${filenameWithoutExampleSuffix} from its .example counterpart."
