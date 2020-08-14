@@ -9,6 +9,7 @@ source ${BASH_UTILS_LOCATION}/utils/logInfo.sh
 # Copies a given [whatever].example file to its [whatever] counterpart, if it does not exist already.
 #
 # @param $1 – the .example file to be copied
+# @param $2 – if set to '--verbose', increase logging
 #
 ###
 function copyExampleFile() {
@@ -33,6 +34,8 @@ function copyExampleFile() {
     cp ${exampleFile} ${filenameWithoutExampleSuffix} && \
     logSuccess "Created a new file `dirname ${exampleFile}`/${filenameWithoutExampleSuffix} from its .example counterpart."
   else
-    logInfo "File `dirname ${exampleFile}`/${filenameWithoutExampleSuffix} already exists."
+    if [ "${2}" = "--verbose" ]; then
+      logInfo "File `dirname ${exampleFile}`/${filenameWithoutExampleSuffix} already exists."
+    fi
   fi
 }
