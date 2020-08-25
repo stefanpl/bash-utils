@@ -31,7 +31,8 @@ function openInVsCode {
   fi
   # Check for workspace file in a .vscode folder
   if [ -d "${folderToOpen}/.vscode" ]; then
-    workspace=`find ${folderToOpen}/.vscode -maxdepth 1 -mindepth 1 -name "*.code-workspace"`
+    workspace=`find ${folderToOpen}/.vscode -maxdepth 1 -mindepth 1 -name "*.code-workspace" \
+      | awk '{ print length, $0 }' | sort -n -s | cut -d" " -f2- | head -n 1` # sort by line length to take the shortest result
     if [ ! -z "${workspace}" ]; then
       code ${workspace}
       return 0
