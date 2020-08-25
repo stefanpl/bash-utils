@@ -27,7 +27,15 @@ function openInVsCode {
   workspace=`find ${folderToOpen} -maxdepth 1 -mindepth 1 -name "*.code-workspace"`
   if [ ! -z "${workspace}" ]; then
     code ${workspace}
-  else
-    code ${folderToOpen}
+    return 0
   fi
+  # Check for workspace file in a .vscode folder
+  if [ -d "${folderToOpen}/.vscode" ]; then
+    workspace=`find ${folderToOpen}/.vscode -maxdepth 1 -mindepth 1 -name "*.code-workspace"`
+    if [ ! -z "${workspace}" ]; then
+      code ${workspace}
+      return 0
+    fi
+  fi
+  code ${folderToOpen}
 }
