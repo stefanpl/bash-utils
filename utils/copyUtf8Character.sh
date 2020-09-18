@@ -1,6 +1,7 @@
 #!/bin/bash
 
 copyUtf8Character() {
+  local separator=" \|\|\| "
   if [ -z "${1}" ]; then
     logError "Provide a character name to search for as the first argument."
     return 1
@@ -20,7 +21,7 @@ copyUtf8Character() {
     logError "Found more than one result matching '${1}':\n${result}"
     return 1
   fi
-  local char=`echo ${result} | perl -p -e 's/ .*//'`
+  local char=`echo ${result} | perl -p -e "s/${separator}.*//"`
   copyLineToClipboard ${char}
   logSuccess "Copied ${char} to clipboard!"
 }
