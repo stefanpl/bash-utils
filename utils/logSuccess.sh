@@ -6,14 +6,18 @@ source ${BASH_UTILS_LOCATION}/utils/colors.sh
 #
 # Logs a formatted success message to stdout.
 #
-function logSuccess {
+logSuccess() {
   if [ -z "${1}" ]; then
     logError "A message must be provided to logSuccess."
     return 1
   fi
   if [ "${CLEAN_OUTPUT}" = "true" ]; then
     echo ${*}
-  else
-    printf "${GREEN} ✓ YAY: ${*}\n${NORMAL}"
+    return
   fi
+  if [ "${CLEAN_OUTPUT}" = "noprefix" ]; then
+    printf "${GREEN}${*}\n${NORMAL}"
+    return
+  fi
+  printf "${GREEN} ✓ YAY: ${*}\n${NORMAL}"
 }
