@@ -24,3 +24,4 @@
 ∑ ||| sum
 🙃 ||| upside down face
 😮 ||| open mouth
+☀ ||| sun
