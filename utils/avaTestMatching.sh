@@ -8,6 +8,6 @@ avaTestMatching() {
   if [ -z "${1}" ]; then
     nx ava
   else
-    nx ava --match "$1"
+    nx ava --match "$1*"
   fi
 }
