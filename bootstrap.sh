@@ -1,13 +1,9 @@
 #!/bin/bash
 
-if [ -z "$BASH_SOURCE[0]" ]; then
-  scriptDir=`dirname "$(readlink -f "$0")"`
-else
-  scriptDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-fi
+scriptDir="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 
-if [ -z "$BASH_UTILS_LOCATION"  ]; then
-  echo "No value found for BASH_UTILS_LOCATION. Please set it in your environment." > /dev/stderr
+if [ -z "$BASH_UTILS_LOCATION" ]; then
+  echo "No value found for BASH_UTILS_LOCATION. Please set it in your environment." >/dev/stderr
   exit 1
 fi
 
