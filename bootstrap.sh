@@ -8,5 +8,5 @@ if [ -z "$BASH_UTILS_LOCATION" ]; then
 fi
 
 # Source all files in the utils folder and its subfolders
-source ${BASH_UTILS_LOCATION}/utils/sourceAllShFiles.sh
-sourceAllShFiles ${BASH_UTILS_LOCATION}/utils
+source "${BASH_UTILS_LOCATION}/utils/sourceAllShFiles.sh"
+sourceAllShFiles "${BASH_UTILS_LOCATION}/utils"
