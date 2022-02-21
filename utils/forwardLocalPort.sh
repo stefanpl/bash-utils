@@ -4,7 +4,7 @@
 # Forward a local port to a port on a ssh server
 # @param1: ssh server
 # @param2: local port to forward
-# [@param2]: remote port to point to. Defaults to the local port.
+# [@param3]: remote port to point to. Defaults to the local port.
 ###
 forwardLocalPort() {
   if ! command -v autossh >/dev/null; then
