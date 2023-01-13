@@ -33,7 +33,7 @@
   "homepage": "https://github.com/stefanpl/bash-utils#readme",
   "devDependencies": {
     "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.2",
+    "webpack-cli": "^3.3.12",
     "@types/mocha": "^5.2.5",
     "@types/node": "^11.9.0",
     "mocha": "^5.2.0",
